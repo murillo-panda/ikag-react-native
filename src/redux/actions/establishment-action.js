@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 
 import {
   SAVE_ESTABLISHMENT_IN_STORE,
@@ -6,7 +7,6 @@ import {
 } from './types';
 
 export const saveEstablishmentInStore = (establishment) => {
-  console.log('establishment in action', establishment);
   return (dispatch) => {
     dispatch({
       type: SAVE_ESTABLISHMENT_IN_STORE,
@@ -16,7 +16,6 @@ export const saveEstablishmentInStore = (establishment) => {
 };
 
 export const saveEstablishmentInFirebase = (establishment) => {
-  console.log('establishment', establishment);
   const { currentUser } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/establishment`)
@@ -24,13 +23,14 @@ export const saveEstablishmentInFirebase = (establishment) => {
       .then(() => {
         dispatch({ type: ESTABLISHMENT_FETCH_SUCCESS, payload: null });
       });
+      Actions.list();
   };
 };
 
 export const establishmentFetch = () => {
   const { currentUser } = firebase.auth();
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/establecimiento`)
+    firebase.database().ref(`/users/${currentUser.uid}/establishment`)
       .on('value', snapshot => {
         dispatch({ type: ESTABLISHMENT_FETCH_SUCCESS, payload: snapshot.val() });
       });

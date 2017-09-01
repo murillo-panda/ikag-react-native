@@ -4,11 +4,6 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  payload: {
-    name: '',
-    description: '',
-    phoneNumber: '',
-  }
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -16,7 +11,10 @@ export default (state = INITIAL_STATE, action) => {
     case SAVE_ESTABLISHMENT_IN_STORE:
       return { ...state, payload: action.payload };
     case ESTABLISHMENT_FETCH_SUCCESS:
+    {
       return action.payload;
+    }
+
 
       /*
     case PASSWORD_CHANGED:

@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import { saveEstablishmentInStore } from '../../redux/actions';
+import { establishmentFetch } from '../../redux/actions';
 import List from '../list';
 
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    establishment: state.establishment
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveEstablishmentInStore: (establishment) => {
-      dispatch(saveEstablishmentInStore(establishment));
+    establishmentFetch: () => {
+      dispatch(establishmentFetch());
     }
   };
 };

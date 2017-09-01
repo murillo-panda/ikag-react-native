@@ -1,24 +1,15 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { Card, CardSection } from '../components/common';
+import image from '../images/ferreteriaSanDiego.jpg';
 
 const Item = ({ album }) => {
-  const { title, image, categories, address, phone, schedule } = album;
+  const { address, name } = album;
   const {
     headerContentStyle,
     imageStyle,
     titleTextStyle
   } = styles;
-
-  renderSchedules = (schedule) => {
-    const { starts, ends } = schedule
-    if (schedule.isOpen) {
-      return (` ${starts} - ${ends}` )
-    }
-    else {
-      return 'Cerrado'
-    }
-  }
 
   return (
     <Card>
@@ -26,19 +17,19 @@ const Item = ({ album }) => {
         <Image
           style={imageStyle}
           //source={{ uri: image }}
-          source = {image}
+          source={image}
         />
       </CardSection>
       <CardSection>
         <View style={headerContentStyle}>
-          <Text style={titleTextStyle}>{title}</Text>
-          <Text>{categories}</Text>
+          <Text style={titleTextStyle}>{name}</Text>
+          <Text>Ferreteria</Text>
           <Text>Direccion: {address}</Text>
-          <Text>Telefono: {phone}</Text>
+          <Text>Telefono: 15-225-49-463</Text>
           <Text>Horarios:</Text>
-          <Text>Lunes a Viernes: {this.renderSchedules(schedule.monToFri)} </Text>
-          <Text>Sabados: {this.renderSchedules(schedule.saturdays)}</Text>
-          <Text>Domingos: {this.renderSchedules(schedule.sundays)}</Text>
+          <Text>Lunes a Viernes: 9:00 - 18:00 </Text>
+          <Text>Sabados: Cerrado </Text>
+          <Text>Domingos: Cerrado </Text>
         </View>
       </CardSection>
     </Card>

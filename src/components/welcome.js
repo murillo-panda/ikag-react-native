@@ -22,7 +22,6 @@ export default class Welcome extends Component {
 
   onButtonLog = () => {
     const { auth } = this.props;
-    console.log('auth', auth.user.email);
   }
 
   onButtonPress() {

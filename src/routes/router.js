@@ -6,7 +6,7 @@ import PersonalData from '../components/containers/personal-data-container';
 import Schedule from '../components/containers/schedule-container';
 import Categories from '../components/containers/categories-container';
 import PhotoUpload from '../components/containers/photo-upload-container';
-import List from '../components/list';
+import List from '../components/containers/list-items-container';
 
 const RouterComponent = () => {
   return (
