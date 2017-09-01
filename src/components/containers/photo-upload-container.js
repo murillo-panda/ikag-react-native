@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { saveEstablishmentInStore } from '../../redux/actions';
+import { saveEstablishmentInFirebase } from '../../redux/actions';
 import PhotoUpload from '../wizard/photo-upload';
 
 const mapStateToProps = (state) => {
@@ -10,9 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveEstablishmentInStore: (establishment) => {
-      console.log('photo-upload-container', establishment);
-      dispatch(saveEstablishmentInStore(establishment));
+    saveEstablishment: (establishment) => {
+      dispatch(saveEstablishmentInFirebase(establishment));
     }
   };
 };

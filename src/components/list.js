@@ -1,14 +1,34 @@
-
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import AlbumDetail from './Item';
+import firebase from 'firebase';
+import _ from 'lodash';
+import AlbumDetail from './item-test';
 import ferreteria from '../images/ferreteriaSanDiego.jpg';
 import cotoAbasto from '../images/cotoAbasto.jpg';
 
 class List extends Component {
-  state = { albums: [], payload: [] }
+  state = { albums: [], payload: [], result: null }
 
   componentWillMount() {
+    let response;
+
+    firebase.auth().signInWithEmailAndPassword('a@a.com', '1234567')
+      .then((user) => {
+        firebase.database().ref(`/users/${user.uid}/establecimiento`)
+        .once('value').then((snapshot) => {
+          this.setState({ payload: snapshot.val() });
+        //  const result = snapshot.val();
+        //  console.log('result', result)
+        })
+      })
+    //  .then((pepe) => console.log('response', pepe))
+      .catch((error) => {
+        console.log(error);
+        //loginUserFail(dispatch);
+      //  firebase.auth().createUserWithEmailAndPassword(email, password)
+        //  .then(user => loginUserSuccess(dispatch, user))
+        // .catch(() => loginUserFail(dispatch));
+      });
     /*const { currentUser } = firebase.auth()
 
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
@@ -88,13 +108,36 @@ class List extends Component {
       }
     ]
 
-    this.setState({ payload: temp });
+    let temp2 =
+    [
+      {
+        "id": 1,
+        "name": "Ferreteria San Diego",
+        "descroiption": "",
+        "address": "Rio de Janeiro 303",
+        "phoneNumber": "011-223-45-983",
+        "startHour": "09:00",
+        "endHour": "21:00",
+        "startHourSat": "09:00",
+        "endHourSat": "21:00",
+        "image": ferreteria
+      }
+    ]
+
+    //this.setState({ payload: temp2 });
   }
 
   renderAlbums() {
+    const employees = _.map(this.state.payload, (val, uid) => {
+      return { ...val, uid };
+    });
+    console.log(employees[0].payload)
+
+/*
     return this.state.payload.map(album =>
       <AlbumDetail key={album.id} album={album} />
     );
+    */
   }
 
   render() {

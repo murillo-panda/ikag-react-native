@@ -11,7 +11,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     saveEstablishmentInStore: (establishment) => {
-      console.log('schedule-container', establishment);
       dispatch(saveEstablishmentInStore(establishment));
     }
   };

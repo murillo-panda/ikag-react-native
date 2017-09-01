@@ -7,8 +7,8 @@ export default class Schedule extends Component {
   constructor() {
     super();
     this.state = {
-      startHour: '',
-      endHour: '',
+      startHour: '09:00',
+      endHour: '21:00',
       isOpenOnSaturday: false,
       startHourSat: '',
       endHourSat: '',
@@ -21,7 +21,8 @@ export default class Schedule extends Component {
   onButtonPress = () => {
     const { startHour, endHour, startHourSat, endHourSat, startHourSun, endHourSun } = this.state;
     const { establishment } = this.props;
-    const payload = Object.assign(establishment.payload, { startHour, endHour, startHourSat, endHourSat, startHourSun, endHourSun });
+    const schedule = { startHour, endHour, startHourSat, endHourSat, startHourSun, endHourSun };
+    const payload = Object.assign(establishment.payload, { schedule });
     this.props.saveEstablishmentInStore(payload);
     Actions.categories();
   }

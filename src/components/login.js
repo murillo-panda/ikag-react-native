@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Button, Card, CardSection, Input, Spinner } from '../common';
+import { Button, Card, CardSection, Input, Spinner } from './common';
 
 export default class Login extends Component {
 
    constructor() {
      super();
      this.state = {
-       email: '',
-       password: ''
+       email: 'a@a.com',
+       password: '1234567'
      };
    }
 

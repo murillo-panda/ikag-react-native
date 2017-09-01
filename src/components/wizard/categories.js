@@ -5,7 +5,7 @@ import { Card, CardSection, Button } from '../common';
 
 export default class Categories extends Component {
   state = {
-    ferreteria: false,
+    ferreteria: true,
     farmacia: false,
     supermercado: false,
     restaurant: false,
@@ -16,7 +16,8 @@ export default class Categories extends Component {
   onButtonPress = () => {
     const { ferreteria, farmacia, supermercado, restaurant, verdureria, otros } = this.state;
     const { establishment } = this.props;
-    const payload = Object.assign(establishment.payload, { ferreteria, farmacia, supermercado, restaurant, verdureria, otros });
+    const categories = { ferreteria, farmacia, supermercado, restaurant, verdureria, otros };
+    const payload = Object.assign(establishment.payload, { categories });
     this.props.saveEstablishmentInStore(payload);
     Actions.uploadPhotos();
   }

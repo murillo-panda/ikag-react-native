@@ -1,7 +1,7 @@
 import React from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
-import LoginForm from '../components/login/login-container';
-import WelcomeView from '../components/welcome-page/welcome-container';
+import LoginForm from '../components/containers/login-container';
+import WelcomeView from '../components/containers/welcome-container';
 import PersonalData from '../components/containers/personal-data-container';
 import Schedule from '../components/containers/schedule-container';
 import Categories from '../components/containers/categories-container';

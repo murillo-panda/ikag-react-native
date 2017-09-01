@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import { Text } from 'react-native';
-import { Card, CardSection, Button } from '../common';
+import { Card, CardSection, Button } from './common';
 
 export default class Welcome extends Component {
 

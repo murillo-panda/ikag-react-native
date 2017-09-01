@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { saveEstablishmentInStore } from '../../redux/actions';
-import Categories from '../wizard/categories';
+import List from '../list';
 
 const mapStateToProps = (state) => {
   return {
-    establishment: state.establishment,
+    auth: state.auth,
   };
 };
 
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Categories);
+)(List);

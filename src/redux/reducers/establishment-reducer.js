@@ -1,5 +1,6 @@
 import {
-  SAVE_ESTABLISHMENT_IN_STORE
+  SAVE_ESTABLISHMENT_IN_STORE,
+  ESTABLISHMENT_FETCH_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -14,6 +15,9 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SAVE_ESTABLISHMENT_IN_STORE:
       return { ...state, payload: action.payload };
+    case ESTABLISHMENT_FETCH_SUCCESS:
+      return action.payload;
+
       /*
     case PASSWORD_CHANGED:
       return { ...state, password: action.payload };
