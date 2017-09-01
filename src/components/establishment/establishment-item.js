@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
-import { Card, CardSection } from '../components/common';
-import image from '../images/ferreteriaSanDiego.jpg';
+import { Card, CardSection } from '../common';
+import image from '../../images/ferreteriaSanDiego.jpg';
 
 const Item = ({ album }) => {
-  const { address, name } = album;
+  const { address, name, phoneNumber, schedule } = album;
+
   const {
     headerContentStyle,
     imageStyle,
@@ -25,9 +26,11 @@ const Item = ({ album }) => {
           <Text style={titleTextStyle}>{name}</Text>
           <Text>Ferreteria</Text>
           <Text>Direccion: {address}</Text>
-          <Text>Telefono: 15-225-49-463</Text>
+          <Text>Telefono: {phoneNumber}</Text>
           <Text>Horarios:</Text>
-          <Text>Lunes a Viernes: 9:00 - 18:00 </Text>
+          <Text>Lunes a Viernes:
+            { album.schedule !== undefined ? (` ${album.schedule.startHour} - ${album.schedule.endHour}`) : '' }
+          </Text>
           <Text>Sabados: Cerrado </Text>
           <Text>Domingos: Cerrado </Text>
         </View>

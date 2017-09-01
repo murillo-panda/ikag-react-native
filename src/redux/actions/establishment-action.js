@@ -23,7 +23,7 @@ export const saveEstablishmentInFirebase = (establishment) => {
       .then(() => {
         dispatch({ type: ESTABLISHMENT_FETCH_SUCCESS, payload: null });
       });
-      Actions.list();
+      Actions.welcomeView();
   };
 };
 

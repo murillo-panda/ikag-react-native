@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import _ from 'lodash';
-import AlbumDetail from './Item';
+import EstablishmenItem from './establishment-item';
 
 class List extends Component {
   state = { albums: [], payload: [], result: null }
@@ -11,12 +11,12 @@ class List extends Component {
   }
 
   renderAlbums() {
-   const establishments = _.map(this.props.establishment, (val, uid) => {
+   const establishments = _.map(this.props.establishmentList, (val, uid) => {
       return { ...val, uid };
     });
 
     if (establishments.length > 0) {
-      return (establishments.map((item, i) => <AlbumDetail key={i} album={item} />));
+      return (establishments.map((item, i) => <EstablishmenItem key={i} album={item} />));
     }
   }
 

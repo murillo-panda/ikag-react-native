@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { establishmentFetch } from '../../redux/actions';
-import List from '../list';
+import List from '../establishment/establishment-list';
 
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    establishment: state.establishment
+    establishmentList: state.establishmentList
   };
 };
 
