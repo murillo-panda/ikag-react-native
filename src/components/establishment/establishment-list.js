@@ -16,7 +16,7 @@ class List extends Component {
     });
 
     if (establishments.length > 0) {
-      return (establishments.map((item, i) => <EstablishmenItem key={i} album={item} />));
+      return (establishments.map((item, i) => <EstablishmenItem key={i} establish={item} />));
     }
   }
 

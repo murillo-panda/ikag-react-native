@@ -16,7 +16,15 @@ export default class Categories extends Component {
   onButtonPress = () => {
     const { ferreteria, farmacia, supermercado, restaurant, verdureria, otros } = this.state;
     const { establishment } = this.props;
-    const categories = { ferreteria, farmacia, supermercado, restaurant, verdureria, otros };
+    const categories = [
+      ferreteria ? 'Ferreteria' : '',
+      farmacia ? 'Farmacia' : '',
+      supermercado ? 'Supermercado' : '',
+      restaurant ? 'Restaurant' : '',
+      verdureria ? ' verdureria' : '',
+      otros ? 'otros' : ''
+    ];
+
     const payload = Object.assign(establishment.payload, { categories });
     this.props.saveEstablishmentInStore(payload);
     Actions.uploadPhotos();
