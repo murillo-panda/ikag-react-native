@@ -34,8 +34,9 @@ export default class Welcome extends Component {
     return (
       <Card>
         <CardSection>
-          <Text>Bienvenido {email}, ¿ Que deseas hacer ?</Text>
+          <Text>Bienvenido {email}</Text>
         </CardSection>
+        
         <CardSection>
           <Button onPress={() => { Actions.list(); }}>
             Ver Establecimientos Registrados

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Switch } from 'react-native';
+import { Text, View, Switch, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Input, Button } from '../common';
 
@@ -7,8 +7,8 @@ export default class Schedule extends Component {
   constructor() {
     super();
     this.state = {
-      startHour: '09:00',
-      endHour: '21:00',
+      startHour: '',
+      endHour: '',
       isOpenOnSaturday: false,
       startHourSat: '',
       endHourSat: '',
@@ -82,6 +82,7 @@ export default class Schedule extends Component {
   render() {
     const { isOpenOnSaturday, isOpenOnSunday, startHour, endHour } = this.state;
     return (
+      <ScrollView>
       <Card>
         <CardSection>
           <Text> Lunes a Viernes: </Text>
@@ -131,6 +132,7 @@ export default class Schedule extends Component {
           </Button>
         </CardSection>
       </Card>
+      </ScrollView>
     );
   }
 }

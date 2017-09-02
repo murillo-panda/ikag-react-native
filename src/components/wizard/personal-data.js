@@ -6,9 +6,9 @@ export default class PersonalData extends Component {
   constructor() {
     super();
     this.state = {
-      name: 'Tienda del Cafe',
-      address: 'Rio de Janeiro 661',
-      phoneNumber: '234-52-82'
+      name: '',
+      address: '',
+      phoneNumber: ''
     };
   }
 

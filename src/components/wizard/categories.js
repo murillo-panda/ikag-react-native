@@ -5,7 +5,7 @@ import { Card, CardSection, Button } from '../common';
 
 export default class Categories extends Component {
   state = {
-    ferreteria: true,
+    ferreteria: false,
     farmacia: false,
     supermercado: false,
     restaurant: false,

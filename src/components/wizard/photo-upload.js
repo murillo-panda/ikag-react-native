@@ -42,13 +42,13 @@ export default class PhotoUpload extends Component {
             <Text>Camera permission is not granted</Text> :
             <BarCodeScanner
               onBarCodeRead={this._handleBarCodeRead}
-              style={{ height: 200, width: 200 }}
+              style={{ height: 300, width: 345 }}
             />
         }
         </CardSection>
         <CardSection>
           <Button onPress={this.onButtonPress}>
-            Guardar Cambios
+            Tomar Foto
           </Button>
         </CardSection>
       </Card>
